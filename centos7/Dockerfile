@@ -8,7 +8,7 @@ RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 
 # Test requirements
 RUN yum -y install ant | /bin/true
-RUN yum -y install ant-junit gcc gcc-c++ tar make bc mpich-devel python-setuptools openssl-devel postgresql-devel mysql-devel
+RUN yum -y install git ant-junit gcc gcc-c++ tar make bc mpich-devel python-setuptools openssl-devel postgresql-devel mysql-devel
 
 # RPM Build requirements
 RUN yum -y install rpm-build ant-apache-regexp java7-devel python-devel asciidoc libxslt fop

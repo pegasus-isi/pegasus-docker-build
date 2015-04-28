@@ -7,7 +7,7 @@ RUN yum -y update
 RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 
 # Test requirements
-RUN yum -y install ant ant-nodeps ant-junit gcc gcc-c++ tar which mpich-devel bc python-setuptools postgresql-devel mysql-devel
+RUN yum -y install git ant ant-nodeps ant-junit gcc gcc-c++ tar which mpich-devel bc python-setuptools postgresql-devel mysql-devel
 RUN yum -y --enablerepo=centosplus install openssl-devel
 
 # RPM Build requirements
