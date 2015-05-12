@@ -10,6 +10,9 @@ RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 RUN yum -y install git ant ant-nodeps ant-junit gcc gcc-c++ tar which mpich-devel bc python-setuptools postgresql-devel mysql-devel
 RUN yum -y --enablerepo=centosplus install openssl-devel
 
+# Panorama requirements
+RUN yum -y install curl-devel
+
 # RPM Build requirements
 RUN yum -y install rpm-build ant-apache-regexp java7-devel python-devel asciidoc libxslt fop
 
