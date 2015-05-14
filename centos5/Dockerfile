@@ -1,6 +1,6 @@
 #
 # Note:
-# Not configured to run dist-doc.
+# Not configured to run dist-doc, test-*.
 #
 
 FROM centos:centos5
