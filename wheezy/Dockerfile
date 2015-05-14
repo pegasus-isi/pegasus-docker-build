@@ -1,3 +1,8 @@
+#
+# Note:
+# Not configured to run test-pmc.
+#
+
 FROM debian:wheezy
 
 MAINTAINER Rajiv Mayani <mayani@isi.edu>
