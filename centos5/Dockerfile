@@ -19,9 +19,6 @@ RUN curl --location --output rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm http://p
 RUN yum -y install git jakarta-commons-httpclient jakarta-commons-logging avalon-framework xalan-j2
 RUN curl --location --output fop-0.95-1.el5.noarch.rpm http://rpmbin.nogin.org/random_RPMs/RHEL-5/fop-0.95-1.el5.noarch.rpm ; rpm -ivh fop-0.95-1.el5.noarch.rpm ; rm --force fop-0.95-1.el5.noarch.rpm
 
-# Panorama requirements
-RUN yum -y install curl-devel
-
 # RPM Build requirements
 RUN yum -y install rpm-build ant-apache-regexp java7-devel python-devel asciidoc libxslt groff
 
