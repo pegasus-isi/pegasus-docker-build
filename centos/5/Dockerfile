@@ -20,7 +20,8 @@ RUN yum -y install git jakarta-commons-httpclient jakarta-commons-logging avalon
 RUN curl --location --output fop-0.95-1.el5.noarch.rpm http://rpmbin.nogin.org/random_RPMs/RHEL-5/fop-0.95-1.el5.noarch.rpm ; rpm -ivh fop-0.95-1.el5.noarch.rpm ; rm --force fop-0.95-1.el5.noarch.rpm
 
 # RPM Build requirements
-RUN yum -y install rpm-build ant-apache-regexp java7-devel python26 python26-devel asciidoc libxslt groff
+# we need both python and python26 to support new and old Pegasus builds
+RUN yum -y install rpm-build ant-apache-regexp java7-devel python26 python26-devel python python-devel asciidoc libxslt groff
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
