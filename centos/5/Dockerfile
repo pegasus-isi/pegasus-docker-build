@@ -12,8 +12,8 @@ RUN yum -y update
 RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 
 # Test requirements
-RUN yum -y install ant ant-nodeps ant-junit gcc gcc-c++ make tar which mpich-devel bc python-setuptools postgresql-devel mysql-devel curl sqlite-devel
-RUN yum -y --enablerepo=centosplus install openssl-devel
+RUN yum -y install ant ant-nodeps ant-junit gcc gcc-c++ make tar which mpich-devel bc python-setuptools postgresql-devel mysql-devel curl sqlite-devel epel-release
+RUN yum -y --enablerepo=centosplus install openssl-devel python26
 
 RUN curl --location --output rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm ; rpm -ivh rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm ; rm --force rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm
 RUN yum -y install git jakarta-commons-httpclient jakarta-commons-logging avalon-framework xalan-j2
