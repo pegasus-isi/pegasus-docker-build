@@ -8,10 +8,10 @@ RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 
 # Test requirements
 RUN yum -y install ant | /bin/true
-RUN yum -y install git ant-junit gcc gcc-c++ tar make bc mpich-devel python-setuptools openssl-devel postgresql-devel mysql-devel which 
+RUN yum -y install git ant-junit gcc gcc-c++ tar make bc mpich-devel python-setuptools openssl-devel postgresql-devel mysql-devel libxml2 epel-release
 
 # RPM Build requirements
-RUN yum -y install rpm-build ant-apache-regexp java7-devel python-devel asciidoc libxslt fop
+RUN yum -y install rpm-build ant-apache-regexp java7-devel python-devel asciidoc libxslt fop which R
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
