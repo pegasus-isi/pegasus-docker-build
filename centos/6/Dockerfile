@@ -11,7 +11,7 @@ RUN yum -y install git ant ant-nodeps ant-junit gcc gcc-c++ tar which mpich-deve
 RUN yum -y --enablerepo=centosplus install openssl-devel
 
 # RPM Build requirements
-RUN yum -y install rpm-build ant-apache-regexp java7-devel python-devel asciidoc libxslt fop R
+RUN yum -y install rpm-build ant-apache-regexp java7-devel python-devel pyOpenSSL asciidoc libxslt fop R
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
