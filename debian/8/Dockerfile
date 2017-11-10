@@ -17,11 +17,13 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/so
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 USER bamboo
 
 RUN mkdir /home/bamboo/.pegasus
 
 ENV HOME /home/bamboo
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 WORKDIR /home/bamboo/pegasus-source
