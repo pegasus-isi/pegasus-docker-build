@@ -13,7 +13,7 @@ RUN apt-get -y -t jessie-backports install openjdk-8-jdk libssl-dev
 RUN apt-get -y install git ant ant-optional gcc g++ tar make libmysql-java mpich2 bc python-setuptools python-dev libpq-dev libmysqlclient-dev libffi-dev
 
 # Deb package build requirements
-RUN apt-get -y install build-essential debhelper asciidoc fop xsltproc lintian r-base dh-python libssl-dev python-openssl
+RUN apt-get -y install build-essential debhelper asciidoc fop xsltproc lintian r-base dh-python python-openssl
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
