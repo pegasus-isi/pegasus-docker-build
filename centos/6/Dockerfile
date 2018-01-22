@@ -11,7 +11,7 @@ RUN yum -y install java-1.8.0-openjdk git ant ant-nodeps ant-junit gcc gcc-c++ t
 RUN yum -y --enablerepo=centosplus install openssl-devel
 
 # RPM Build requirements
-RUN yum -y install rpm-build ant-apache-regexp java-1.8.0-openjdk-devel python-devel pyOpenSSL asciidoc libxslt fop R
+RUN yum -y install rpm-build ant-apache-regexp java-1.7.0-openjdk-devel java-1.8.0-openjdk-devel python-devel pyOpenSSL asciidoc libxslt fop R
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime

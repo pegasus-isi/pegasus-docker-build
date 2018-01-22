@@ -11,7 +11,7 @@ RUN yum -y install ant | /bin/true
 RUN yum -y install git ant-junit gcc gcc-c++ tar make bc mpich-devel python-setuptools openssl-devel postgresql-devel mysql-devel libxml2 epel-release
 
 # RPM Build requirements
-RUN yum -y install rpm-build ant-apache-regexp java-1.8.0-openjdk-devel python-devel pyOpenSSL which R-devel groff asciidoc libxslt fop
+RUN yum -y install rpm-build ant-apache-regexp java-1.7.0-openjdk-devel java-1.8.0-openjdk-devel python-devel pyOpenSSL which R-devel groff asciidoc libxslt fop
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
