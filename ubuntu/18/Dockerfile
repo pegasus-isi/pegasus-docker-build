@@ -30,8 +30,8 @@ RUN curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/p
 
 RUN pyenv install 2.7.14 && \
     pyenv install 3.5.5 && \
-    pyenv install 3.6.4 && \
+    pyenv install 3.6.6 && \
     pyenv install 3.7.0 && \
-    pyenv global 2.7.14 3.5.5 3.6.4 3.7.0
+    pyenv global 2.7.14 3.5.5 3.6.6 3.7.0
 
 WORKDIR /home/bamboo/pegasus-source
