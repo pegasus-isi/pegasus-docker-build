@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 
-MAINTAINER Rajiv Mayani <mayani@isi.edu>
+LABEL maintainer="Rajiv Mayani <mayani@isi.edu>, Mats Rynge <rynge@isi.edu>"
 
 RUN apt-get update
 
