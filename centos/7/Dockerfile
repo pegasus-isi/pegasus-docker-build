@@ -15,7 +15,7 @@ RUN yum -y install rpm-build ant-apache-regexp java-1.7.0-openjdk-devel java-1.8
 
 # Python requirements
 RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel && \
-    easy_install pip && \
+    easy_install pip PyYAML && \
     pip install --upgrade pip setuptools && \
     pip install tox
 

@@ -7,7 +7,7 @@ RUN yum -y update
 RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 
 # Test requirements
-RUN yum -y install java-1.8.0-openjdk git ant ant-nodeps ant-junit gcc gcc-c++ tar which mpich-devel bc python-setuptools postgresql-devel mysql-devel epel-release libffi-devel
+RUN yum -y install java-1.8.0-openjdk git ant ant-nodeps ant-junit gcc gcc-c++ tar which mpich-devel bc python-setuptools postgresql-devel mysql-devel epel-release libffi-devel 
 RUN yum -y --enablerepo=centosplus install openssl-devel
 
 # RPM Build requirements
@@ -15,7 +15,7 @@ RUN yum -y install rpm-build ant-apache-regexp java-1.8.0-openjdk-devel python-d
 
 # Python requirements
 RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel python-pip && \
-    pip install tox
+    pip install tox PyYAML
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
