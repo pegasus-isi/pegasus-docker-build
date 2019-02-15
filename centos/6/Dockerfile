@@ -14,7 +14,7 @@ RUN yum -y --enablerepo=centosplus install openssl-devel
 RUN yum -y install rpm-build ant-apache-regexp java-1.8.0-openjdk-devel asciidoc libxslt fop R
 
 # Python requirements
-RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel python-devel python-pip python-setuptools PyYAML
+RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel python-devel python-pip python-setuptools pyOpenSSL PyYAML
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
