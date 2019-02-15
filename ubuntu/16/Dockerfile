@@ -13,7 +13,7 @@ RUN apt-get -y install git ant ant-optional gcc g++ tar openjdk-8-jdk make libmy
 RUN apt-get -y install build-essential debhelper asciidoc fop xsltproc lintian r-base libssl-dev python-openssl
 
 # Python requirements
-RUN apt-get -y install libsqlite3-dev tox
+RUN apt-get -y install libsqlite3-dev python-yaml tox
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
