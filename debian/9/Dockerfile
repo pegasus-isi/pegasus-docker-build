@@ -25,16 +25,16 @@ RUN mkdir /home/bamboo/.pegasus
 ENV HOME /home/bamboo
 ENV PATH $HOME/.pyenv/bin:$PATH
 
-RUN curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash && \
-    echo 'export PATH=~/.pyenv/bin:$PATH\neval "$(pyenv init -)"\neval "$(pyenv virtualenv-init -)"' > ~/.bash_profile
-
-RUN pyenv install 2.6.9 && \
-    pyenv install 2.7.14 && \
-    #pyenv install 3.3.7 && \
-    pyenv install 3.4.8 && \
-    pyenv install 3.5.5 && \
-    pyenv install 3.6.6 && \
-    pyenv install 3.7.0 && \
-    pyenv global 2.6.9 2.7.14 3.4.8 3.5.5 3.6.6 3.7.0
+#RUN curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash && \
+#    echo 'export PATH=~/.pyenv/bin:$PATH\neval "$(pyenv init -)"\neval "$(pyenv virtualenv-init -)"' > ~/.bash_profile
+#
+#RUN pyenv install 2.6.9 && \
+#    pyenv install 2.7.14 && \
+#    #pyenv install 3.3.7 && \
+#    pyenv install 3.4.8 && \
+#    pyenv install 3.5.5 && \
+#    pyenv install 3.6.6 && \
+#    pyenv install 3.7.0 && \
+#    pyenv global 2.6.9 2.7.14 3.4.8 3.5.5 3.6.6 3.7.0
 
 WORKDIR /home/bamboo/pegasus-source
