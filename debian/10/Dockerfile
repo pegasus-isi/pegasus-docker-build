@@ -10,7 +10,7 @@ RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 RUN apt-get -y install git ant ant-optional gcc g++ tar openjdk-8-jdk make openmpi-bin libopenmpi-dev bc python-setuptools python-dev python-yaml libssl-dev libpq-dev libmariadb-dev libffi-dev
 
 # Deb package build requirements
-RUN apt-get -y install build-essential debhelper asciidoc fop xsltproc lintian r-base default-libmysqlclient-dev libssl-dev python-openssl python-yaml
+RUN apt-get -y install build-essential debhelper asciidoc fop xsltproc lintian r-base libssl-dev python-openssl python-yaml
 
 # Python requirements
 RUN apt-get -y install libsqlite3-dev tox
