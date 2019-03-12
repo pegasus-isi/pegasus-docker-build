@@ -1,4 +1,4 @@
-FROM pegasus/pegasus:jessie
+FROM pegasus/pegasus:zesty
 
 MAINTAINER Rajiv Mayani <mayani@isi.edu>, George Papadimitriou <georgpap@isi.edu>
 
