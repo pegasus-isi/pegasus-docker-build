@@ -14,7 +14,7 @@ RUN yum -y install git ant-junit gcc gcc-c++ tar make bc mpich-devel python-setu
 RUN yum -y install rpm-build ant-apache-regexp java-1.7.0-openjdk-devel java-1.8.0-openjdk-devel python-devel pyOpenSSL which R-devel groff asciidoc libxslt fop
 
 # Python requirements
-RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel python-pip PyYAML && \
+RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel python-pip PyYAML pytest && \
     pip install --upgrade pip setuptools && \
     pip install tox
 
