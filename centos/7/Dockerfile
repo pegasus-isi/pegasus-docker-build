@@ -24,8 +24,8 @@ RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
     tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz && \
     rm go$VERSION.$OS-$ARCH.tar.gz 
 
-ENV GOPATH $HOME/go
-ENV PATH=/usr/local/go/bin:$PATH:$GOPATH/bin
+ENV GOPATH /home/bamboo/go
+ENV PATH /usr/local/go/bin:$PATH:$GOPATH/bin
 
 RUN go get -u github.com/golang/dep/cmd/dep
 
