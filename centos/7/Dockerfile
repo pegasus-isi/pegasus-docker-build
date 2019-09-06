@@ -8,7 +8,7 @@ RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 
 # Test requirements
 RUN yum -y install ant | /bin/true
-RUN yum -y install git ant-junit gcc gcc-c++ tar make bc mpich-devel python-setuptools openssl-devel postgresql-devel mysql-devel libxml2 epel-release libffi-devel
+RUN yum -y install git ant-junit gcc gcc-c++ tar make bc mpich-devel python-setuptools openssl-devel postgresql-devel mysql-devel libxml2 epel-release libffi-devel yum-plugin-priorities libuuid-devel libseccomp-devel squashfs-tools cryptsetup wget golang
 
 # RPM Build requirements
 RUN yum -y install rpm-build ant-apache-regexp java-1.7.0-openjdk-devel java-1.8.0-openjdk-devel python-devel pyOpenSSL which R-devel groff asciidoc libxslt fop
@@ -17,6 +17,28 @@ RUN yum -y install rpm-build ant-apache-regexp java-1.7.0-openjdk-devel java-1.8
 RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel python-pip PyYAML pytest && \
     pip install --upgrade pip setuptools && \
     pip install tox
+
+# Container requirements (Singularity installation)
+RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
+    wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz && \
+    tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz && \
+    rm go$VERSION.$OS-$ARCH.tar.gz 
+
+ENV GOPATH $HOME/go
+ENV PATH=/usr/local/go/bin:$PATH:$GOPATH/bin
+
+RUN go get -u github.com/golang/dep/cmd/dep
+
+RUN export VERSION=3.0.3 && \
+    mkdir -p $GOPATH/src/github.com/sylabs && \
+    cd $GOPATH/src/github.com/sylabs && \
+    wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
+    tar -xzf singularity-${VERSION}.tar.gz && \
+    rm singularity-${VERSION}.tar.gz && \
+    cd ./singularity && \
+    ./mconfig && \
+    make -C ./builddir && \
+    make -C ./builddir install
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
