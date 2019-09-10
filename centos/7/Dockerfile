@@ -29,7 +29,9 @@ ENV PATH /usr/local/go/bin:$PATH:$GOPATH/bin
 
 RUN go get -u github.com/golang/dep/cmd/dep
 
-RUN export VERSION=3.0.3 && \
+RUN yum -y install vim 
+
+RUN export VERSION=3.2.0 && \
     mkdir -p $GOPATH/src/github.com/sylabs && \
     cd $GOPATH/src/github.com/sylabs && \
     wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
@@ -39,6 +41,24 @@ RUN export VERSION=3.0.3 && \
     ./mconfig && \
     make -C ./builddir && \
     make -C ./builddir install
+
+# Set templates in magic file so that Singularity files can be identified using the 'file' command 
+RUN echo $'# using env \n\
+0	string/t	#!/usr/bin/env		a \n\
+>15	string/t	>\\0			%s script text executable \n\
+!:strength / 10 \n\
+\n\
+0	string/b	#!/usr/bin/env		a \n\
+>15	string/b	>\\0			%s script executable (binary data) \n\
+!:strength / 10 \n\
+\n\
+0	string/t	#!\ /usr/bin/env	a \n\
+>16	string/t	>\\0			%s script text executable \n\
+!:strength / 10 \n\
+\n\
+0	string/b	#!\ /usr/bin/env	a \n\
+>16	string/b	>\\0			%s script executable (binary data) \n\
+!:strength / 10' >> /etc/magic
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
