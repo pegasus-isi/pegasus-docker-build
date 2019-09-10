@@ -29,9 +29,7 @@ ENV PATH /usr/local/go/bin:$PATH:$GOPATH/bin
 
 RUN go get -u github.com/golang/dep/cmd/dep
 
-RUN yum -y install vim 
-
-RUN export VERSION=3.2.0 && \
+RUN export VERSION=3.0.1 && \
     mkdir -p $GOPATH/src/github.com/sylabs && \
     cd $GOPATH/src/github.com/sylabs && \
     wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
