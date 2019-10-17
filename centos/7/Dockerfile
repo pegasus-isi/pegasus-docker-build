@@ -11,7 +11,7 @@ RUN yum -y install ant | /bin/true
 RUN yum -y install git ant-junit gcc gcc-c++ tar make bc mpich-devel python-setuptools python36-setuptools openssl-devel postgresql-devel mysql-devel libxml2 epel-release libffi-devel yum-plugin-priorities libuuid-devel libseccomp-devel squashfs-tools cryptsetup wget golang
 
 # RPM Build requirements
-RUN yum -y install rpm-build ant-apache-regexp java-1.8.0-openjdk-devel python-devel python36-devel pyOpenSSL which R-devel groff asciidoc libxslt fop
+RUN yum -y install rpm-build ant-apache-regexp java-1.8.0-openjdk-devel python-devel python36-devel python36-pyOpenSSL which R-devel groff asciidoc libxslt fop
 
 # Python requirements
 RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel python-pip python36-pip PyYAML python36-PyYAML pytest python36-pytest && \
