@@ -14,6 +14,7 @@ RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 
 RUN dnf -y install --allowerasing --nobest \
      ant \
+     ant-apache-regexp \
      ant-junit \
      asciidoc \
      bc \
@@ -21,6 +22,7 @@ RUN dnf -y install --allowerasing --nobest \
      gcc \
      gcc-c++ \
      git \
+     groff \
      java-11-openjdk-devel \
      libffi-devel \
      libxml2 \
