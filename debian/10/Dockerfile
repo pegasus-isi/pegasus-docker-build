@@ -1,4 +1,4 @@
-FROM pegasus/pegasus:buster
+FROM pegasus/pegasus:4.9-buster
 
 MAINTAINER Rajiv Mayani <mayani@isi.edu>, George Papadimitriou <georgpap@isi.edu>
 

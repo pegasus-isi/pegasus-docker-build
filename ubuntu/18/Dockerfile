@@ -1,4 +1,4 @@
-FROM pegasus/pegasus:bionic
+FROM pegasus/pegasus:4.9-bionic
 
 MAINTAINER Rajiv Mayani <mayani@isi.edu>, George Papadimitriou <georgpap@isi.edu>
 
