@@ -7,13 +7,16 @@ RUN apt-get update
 RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 
 # Test requirements
-RUN apt-get -y install git ant ant-optional gcc g++ tar default-jdk make libmysql-java mpich bc python-setuptools python-dev python3-setuptools python3-dev libssl-dev libpq-dev libmysqlclient-dev libffi-dev
+RUN apt-get -y install git ant ant-optional gcc g++ tar default-jdk make libmysql-java mpich bc python3-setuptools python3-dev libssl-dev libpq-dev libmysqlclient-dev libffi-dev
 
 # Deb package build requirements
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential debhelper asciidoc fop xsltproc lintian r-base libssl-dev python-openssl python3-openssl
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential debhelper lintian r-base libssl-dev python3-openssl
 
 # Python requirements
-RUN apt-get -y install libsqlite3-dev tox python-yaml python-pytest python3-yaml python3-pytest
+RUN apt-get -y install libsqlite3-dev tox python3-yaml python3-pytest python3-pip
+
+# Documentation
+RUN pip3 install sphinx recommonmark sphinx_rtd_theme sphinxcontrib-openapi javasphinx
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime

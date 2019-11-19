@@ -13,44 +13,47 @@ RUN dnf -y update && \
 RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 
 RUN dnf -y install --allowerasing --nobest \
-     ant \
-     ant-apache-regexp \
-     ant-junit \
-     asciidoc \
-     bc \
-     bzip2-devel \
-     gcc \
-     gcc-c++ \
-     git \
-     groff \
-     java-11-openjdk-devel \
-     libffi-devel \
-     libxml2 \
-     libxslt \
-     make \
-     mpich-devel \
-     mysql-devel \
-     openssl-devel \
-     patch \
-     postgresql-devel \
-     python3-devel \
-     python3-pyOpenSSL \
-     python3-pytest \
-     python3-pyyaml \
-     R-devel \
-     readline-devel \
-     rpm-build \
-     sqlite-devel \
-     tar \
-     which \
-     zlib-devel
+    ant-apache-regexp \
+    ant-junit \
+    bc \
+    bzip2-devel \
+    gcc \
+    gcc-c++ \
+    git \
+    java-11-openjdk-devel \
+    libffi-devel \
+    make \
+    mpich-devel \
+    mysql-devel \
+    openssl-devel \
+    patch \
+    postgresql-devel \
+    python3-devel \
+    python3-pyOpenSSL \
+    python3-pytest \
+    python3-pyyaml \
+    R-devel \
+    readline-devel \
+    rpm-build \
+    sqlite-devel \
+    tar \
+    which \
+    zlib-devel \
+    glibc-langpack-en
 
 # Python requirements
-RUN pip3 install --upgrade pip setuptools && \
-    pip install tox
+RUN pip3 install --upgrade pip setuptools
+
+# Python test requirements
+RUN pip3 install tox
+
+# Documentation
+RUN pip3 install sphinx recommonmark sphinx_rtd_theme sphinxcontrib-openapi javasphinx
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+
+ENV LC_ALL="en_US.UTF-8"
 
 USER bamboo
 

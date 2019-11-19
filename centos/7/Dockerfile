@@ -8,21 +8,26 @@ RUN useradd --gid 100 --uid 550 --create-home --password bamboo123 bamboo
 
 # Test requirements
 RUN yum -y install ant | /bin/true
-RUN yum -y install git ant-junit gcc gcc-c++ tar make bc mpich-devel python-setuptools python36-setuptools openssl-devel postgresql-devel mysql-devel libxml2 epel-release libffi-devel yum-plugin-priorities libuuid-devel libseccomp-devel squashfs-tools cryptsetup wget golang
+RUN yum -y install git ant-junit gcc gcc-c++ tar make bc mpich-devel python36-setuptools openssl-devel postgresql-devel mysql-devel epel-release libffi-devel yum-plugin-priorities libuuid-devel libseccomp-devel squashfs-tools cryptsetup wget golang
 
 # RPM Build requirements
-RUN yum -y install rpm-build ant-apache-regexp java-1.8.0-openjdk-devel python-devel python36-devel python36-pyOpenSSL pyOpenSSL which R-devel groff asciidoc libxslt fop
+RUN yum -y install rpm-build ant-apache-regexp java-1.8.0-openjdk-devel python36-devel python36-pyOpenSSL which R-devel
 
 # Python requirements
-RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel python-pip python36-pip PyYAML python36-PyYAML pytest python36-pytest && \
-    pip install --upgrade pip setuptools && \
-    pip install tox
+RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel python36-pip python36-PyYAML python36-pytest && \
+    pip3 install --upgrade pip setuptools
+
+# Python test requirements
+RUN pip3 install tox
+
+# Documentation
+RUN pip3 install sphinx recommonmark sphinx_rtd_theme sphinxcontrib-openapi javasphinx
 
 # Container requirements (Singularity installation)
 RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
     wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz && \
     tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz && \
-    rm go$VERSION.$OS-$ARCH.tar.gz 
+    rm go$VERSION.$OS-$ARCH.tar.gz
 
 ENV GOPATH /home/bamboo/go
 ENV PATH /usr/local/go/bin:$PATH:$GOPATH/bin
@@ -40,7 +45,7 @@ RUN export VERSION=3.0.1 && \
     make -C ./builddir && \
     make -C ./builddir install
 
-# Set templates in magic file so that Singularity files can be identified using the 'file' command 
+# Set templates in magic file so that Singularity files can be identified using the 'file' command
 RUN echo $'# using env \n\
 0	string/t	#!/usr/bin/env		a \n\
 >15	string/t	>\\0			%s script text executable \n\
