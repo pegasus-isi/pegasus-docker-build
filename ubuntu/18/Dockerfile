@@ -13,10 +13,10 @@ RUN apt-get -y install git ant ant-optional gcc g++ tar default-jdk make libmysq
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential debhelper lintian r-base texlive-latex-base texlive-fonts-recommended libssl-dev python3-openssl
 
 # Python requirements
-RUN apt-get -y install libsqlite3-dev tox python3-yaml python3-pytest python3-pip
+RUN apt-get -y install libsqlite3-dev python3-yaml python3-pytest python3-pip
 
 # Documentation
-RUN pip3 install sphinx recommonmark sphinx_rtd_theme sphinxcontrib-openapi javasphinx
+RUN pip3 install tox
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
