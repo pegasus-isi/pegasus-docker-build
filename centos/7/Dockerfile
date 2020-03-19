@@ -15,7 +15,7 @@ RUN yum -y install rpm-build ant-apache-regexp java-1.8.0-openjdk-devel python36
 
 # Python requirements
 RUN yum -y install gcc patch readline-devel zlib-devel bzip2-devel sqlite-devel python36-pip python36-PyYAML python36-pytest && \
-    pip3 install --upgrade pip setuptools
+    pip3 install --upgrade pip setuptools==45.3.0
 
 # Python test requirements
 RUN pip3 install tox
