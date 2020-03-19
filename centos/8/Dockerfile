@@ -42,7 +42,7 @@ RUN dnf -y install --allowerasing --nobest \
     glibc-langpack-en
 
 # Python requirements
-RUN pip3 install --upgrade pip setuptools
+RUN pip3 install --upgrade pip setuptools==45.3.0
 
 # Python test requirements
 RUN pip3 install tox
