@@ -16,7 +16,7 @@ RUN apt-get -y install build-essential debhelper lintian r-base texlive-latex-ba
 RUN apt-get -y install libsqlite3-dev
 
 # Documentation
-RUN pip3 install tox
+RUN pip3 install --upgrade pip setuptools==45.3.0 tox
 
 # Set Timezone
 RUN cp /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
