@@ -41,13 +41,10 @@ RUN dnf -y install --allowerasing --nobest \
     zlib-devel \
     glibc-langpack-en
 
-# Python requirements
-RUN pip3 install --upgrade pip setuptools==45.3.0
-
-# Python test requirements
+# Python test requirements - FIXME: not a great idea to use pip3 install in this container
 RUN pip3 install tox
 
-# Documentation
+# Documentation - FIXME: not a great idea to use pip3 install in this container
 RUN pip3 install sphinx recommonmark sphinx_rtd_theme sphinxcontrib-openapi javasphinx
 
 # Set Timezone
