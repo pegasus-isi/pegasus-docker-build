@@ -23,6 +23,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt -y install \
       libssl-dev \
       lintian \
       mpich \
+      python3-attr \
       python3-dev \
       python3-openssl \
       python3-pip \

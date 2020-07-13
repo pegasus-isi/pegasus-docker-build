@@ -30,6 +30,7 @@ RUN yum -y install \
      openssl-devel \
      patch \
      postgresql-devel \
+     python36-attr \
      python36-devel \
      python36-pip \
      python36-pyOpenSSL \
