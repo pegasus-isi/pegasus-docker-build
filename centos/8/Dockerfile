@@ -32,6 +32,7 @@ RUN dnf -y install --allowerasing --nobest \
     openssl-devel \
     patch \
     postgresql-devel \
+    python3-attrs \
     python3-devel \
     python3-pyOpenSSL \
     python3-pytest \
