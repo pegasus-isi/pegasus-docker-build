@@ -5,10 +5,6 @@ LABEL maintainer="Rajiv Mayani <mayani@isi.edu>, Mats Rynge <rynge@isi.edu>"
 # we should't really need this, but for some reason we do to install ant-junit
 RUN echo 'module_hotfixes=true' >>/etc/yum.repos.d/CentOS-PowerTools.repo
 
-# clean rpm database
-RUN rm -f /var/lib/rpm/Pubkeys && \
-    rpm --rebuilddb
-
 RUN dnf -y update && \
     dnf -y install 'dnf-command(config-manager)' && \
     yum -y config-manager --set-enabled PowerTools && \
