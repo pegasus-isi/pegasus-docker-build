@@ -25,6 +25,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt -y install \
       mpich \
       python3-attr \
       python3-dev \
+      python3-git \
       python3-openssl \
       python3-pika \
       python3-pip \

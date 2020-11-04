@@ -32,6 +32,7 @@ RUN yum -y install \
      postgresql-devel \
      python36-attr \
      python36-devel \
+     python36-GitPython \
      python36-pip \
      python36-pyOpenSSL \
      python36-pytest \
