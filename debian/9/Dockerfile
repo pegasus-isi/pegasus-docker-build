@@ -1,4 +1,4 @@
-FROM pegasus/pegasus:4.9-stretch
+FROM pegasus/pegasus:stretch
 
 MAINTAINER Rajiv Mayani <mayani@isi.edu>, George Papadimitriou <georgpap@isi.edu>
 

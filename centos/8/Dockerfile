@@ -1,4 +1,4 @@
-FROM pegasus/pegasus:centos7
+FROM pegasus/pegasus:centos8
 
 MAINTAINER Rajiv Mayani <mayani@isi.edu>, George Papadimitriou <georgpap@isi.edu>
 

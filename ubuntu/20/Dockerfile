@@ -1,12 +1,12 @@
-FROM pegasus/pegasus:centos7
+FROM pegasus/pegasus:focal
 
 MAINTAINER Rajiv Mayani <mayani@isi.edu>, George Papadimitriou <georgpap@isi.edu>
 
 USER root
 
-RUN yum -y update
+RUN apt-get update && apt-get upgrade -y
 
 # Panorama requirements
-RUN yum -y install curl-devel
+RUN apt-get -y install libcurl4-openssl-dev
 
 USER bamboo
