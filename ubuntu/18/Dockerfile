@@ -4,9 +4,10 @@ MAINTAINER Rajiv Mayani <mayani@isi.edu>, George Papadimitriou <georgpap@isi.edu
 
 USER root
 
-RUN apt-get update && apt-get upgrade -y
-
 # Panorama requirements
-RUN apt-get -y install libcurl4-openssl-dev
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get -y install libcurl4-openssl-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 USER bamboo

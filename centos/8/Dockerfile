@@ -4,9 +4,10 @@ MAINTAINER Rajiv Mayani <mayani@isi.edu>, George Papadimitriou <georgpap@isi.edu
 
 USER root
 
-RUN yum -y update
-
 # Panorama requirements
-RUN yum -y install curl-devel
+RUN yum -y update && \
+    yum -y install curl-devel && \
+    yum clean all && \
+    rm -rf /var/cache/yum
 
 USER bamboo
